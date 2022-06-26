@@ -1,18 +1,26 @@
-let modalMain = document.getElementById("modal_main");
-let modalSuccess = document.getElementById("modal_success");
-let modalClose_1 = modalMain.querySelector(".modal__close");
-let modalClose_2 = modalSuccess.querySelector(".modal__close");
-let showSuccess = modalMain.querySelector(".show-success");
+const modal = document.getElementById("modal_main");
+modal.classList.add("modal_active");
 
-modalClose_1.onclick = function() {   
-  modalMain.classList.remove("modal_active");  
-}
+const close = document.querySelector(".modal__close");
+const openSecondModal = document.querySelector(".show-success");
 
-modalClose_2.onclick = function() {
-  modalSuccess.classList.remove("modal_active"); 
-}
+close.onclick = function () {
+  modal.style.display = "none";
+};
 
-showSuccess.onclick = function() {
-  modalMain.classList.remove("modal_active");
-  modalSuccess.classList.add("modal_active");
-}
+openSecondModal.onclick = function () {
+  modal.style.display = "none";
+  const secondModal = document.getElementById("modal_success");
+  secondModal.classList.add("modal_active");
+
+  const closeAll = document.querySelector(".modal__close");
+  const closeSecondModal = document.querySelector(".btn_success");
+
+  closeAll.onclick = function () {
+    secondModal.style.display = "none";
+  };
+
+  closeSecondModal.onclick = function () {
+    secondModal.style.display = "none";
+  };
+};
